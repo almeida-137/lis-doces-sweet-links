@@ -131,52 +131,53 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-white to-lilac-50">
-      {/* Header */}
-      <div className="text-center py-8 px-4">
+      {/* Header - Mobile First */}
+      <div className="text-center py-4 px-3 sm:py-6 sm:px-4 lg:py-8">
         <div className="max-w-md mx-auto">
-          <h1 className="text-4xl font-bold text-lilac-800 mb-2 font-poppins">
+          <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-lilac-800 mb-1 sm:mb-2 font-poppins">
             Lis Doces
           </h1>
-          <p className="text-lilac-600 text-lg mb-6 font-light">
+          <p className="text-lilac-600 text-sm sm:text-base lg:text-lg mb-4 sm:mb-6 font-light">
             Brigadeiros caseiros feitos com amor 💜
           </p>
           
-          {/* Social Links */}
-          <div className="flex gap-4 justify-center mb-8">
+          {/* Social Links - Mobile Optimized */}
+          <div className="flex flex-col sm:flex-row gap-2 sm:gap-4 justify-center mb-6 sm:mb-8">
             <Button 
               variant="outline" 
               size="lg"
-              className="border-lilac-300 text-lilac-700 hover:bg-lilac-100 flex items-center gap-2"
+              className="border-lilac-300 text-lilac-700 hover:bg-lilac-100 flex items-center justify-center gap-2 h-10 sm:h-11 text-sm sm:text-base"
               onClick={() => window.open('https://wa.me/5511999999999', '_blank')}
             >
-              <MessageCircle className="w-5 h-5" />
+              <MessageCircle className="w-4 h-4 sm:w-5 sm:h-5" />
               WhatsApp
             </Button>
             <Button 
               variant="outline" 
               size="lg"
-              className="border-lilac-300 text-lilac-700 hover:bg-lilac-100 flex items-center gap-2"
+              className="border-lilac-300 text-lilac-700 hover:bg-lilac-100 flex items-center justify-center gap-2 h-10 sm:h-11 text-sm sm:text-base"
               onClick={() => window.open('https://instagram.com/lisdoces', '_blank')}
             >
-              <Instagram className="w-5 h-5" />
+              <Instagram className="w-4 h-4 sm:w-5 sm:h-5" />
               Instagram
             </Button>
           </div>
         </div>
       </div>
 
-      {/* Menu */}
-      <div className="max-w-2xl mx-auto px-4 pb-32">
-        <h2 className="text-2xl font-semibold text-lilac-800 mb-6 text-center">
+      {/* Menu - Mobile First */}
+      <div className="max-w-2xl mx-auto px-3 sm:px-4 pb-24 sm:pb-28 lg:pb-32">
+        <h2 className="text-xl sm:text-2xl font-semibold text-lilac-800 mb-4 sm:mb-6 text-center">
           Nosso Cardápio
         </h2>
         
-        <div className="grid gap-6">
+        <div className="grid gap-3 sm:gap-4 lg:gap-6">
           {brigadeiros.map((brigadeiro) => (
             <Card key={brigadeiro.id} className="overflow-hidden border-lilac-200 shadow-sm hover:shadow-md transition-shadow animate-fade-in">
-              <CardContent className="p-6">
-                <div className="flex gap-4">
-                  <div className="w-24 h-24 rounded-full overflow-hidden flex-shrink-0 border-2 border-lilac-200">
+              <CardContent className="p-3 sm:p-4 lg:p-6">
+                <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
+                  {/* Image - Mobile Optimized */}
+                  <div className="w-16 h-16 sm:w-20 sm:h-20 lg:w-24 lg:h-24 rounded-full overflow-hidden flex-shrink-0 border-2 border-lilac-200 mx-auto sm:mx-0">
                     <img 
                       src={brigadeiro.image} 
                       alt={brigadeiro.name}
@@ -184,42 +185,43 @@ const Index = () => {
                     />
                   </div>
                   
-                  <div className="flex-1">
-                    <h3 className="font-semibold text-lilac-800 text-lg mb-1">
+                  <div className="flex-1 text-center sm:text-left">
+                    <h3 className="font-semibold text-lilac-800 text-base sm:text-lg mb-1">
                       {brigadeiro.name}
                     </h3>
-                    <p className="text-lilac-600 text-sm mb-4 leading-relaxed">
+                    <p className="text-lilac-600 text-xs sm:text-sm mb-3 sm:mb-4 leading-relaxed">
                       {brigadeiro.description}
                     </p>
                     
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center gap-3">
+                    {/* Controls - Mobile Optimized */}
+                    <div className="flex flex-col sm:flex-row items-center gap-3 sm:justify-between">
+                      <div className="flex items-center gap-2 sm:gap-3">
                         <Button
                           variant="outline"
                           size="icon"
-                          className="h-8 w-8 border-lilac-300 text-lilac-700 hover:bg-lilac-100"
+                          className="h-8 w-8 border-lilac-300 text-lilac-700 hover:bg-lilac-100 flex-shrink-0"
                           onClick={() => updateQuantity(brigadeiro.id, -1)}
                         >
-                          <Minus className="h-4 w-4" />
+                          <Minus className="h-3 w-3 sm:h-4 sm:w-4" />
                         </Button>
                         
-                        <span className="w-8 text-center font-medium text-lilac-800">
+                        <span className="w-8 text-center font-medium text-lilac-800 text-sm sm:text-base">
                           {quantities[brigadeiro.id] || 0}
                         </span>
                         
                         <Button
                           variant="outline"
                           size="icon"
-                          className="h-8 w-8 border-lilac-300 text-lilac-700 hover:bg-lilac-100"
+                          className="h-8 w-8 border-lilac-300 text-lilac-700 hover:bg-lilac-100 flex-shrink-0"
                           onClick={() => updateQuantity(brigadeiro.id, 1)}
                         >
-                          <Plus className="h-4 w-4" />
+                          <Plus className="h-3 w-3 sm:h-4 sm:w-4" />
                         </Button>
                       </div>
                       
                       <Button
                         onClick={() => addToCart(brigadeiro)}
-                        className="bg-lilac-500 hover:bg-lilac-600 text-white px-6"
+                        className="bg-lilac-500 hover:bg-lilac-600 text-white px-4 sm:px-6 h-8 sm:h-10 text-sm sm:text-base w-full sm:w-auto mt-2 sm:mt-0"
                       >
                         Adicionar
                       </Button>
@@ -232,16 +234,18 @@ const Index = () => {
         </div>
       </div>
 
-      {/* Fixed Cart Footer */}
+      {/* Fixed Cart Footer - Mobile First */}
       {cart.length > 0 && (
-        <div className="fixed bottom-0 left-0 right-0 bg-white border-t border-lilac-200 p-4 shadow-lg">
+        <div className="fixed bottom-0 left-0 right-0 bg-white border-t border-lilac-200 p-3 sm:p-4 shadow-lg">
           <div className="max-w-2xl mx-auto">
-            <div className="mb-3">
-              <p className="text-sm text-lilac-600 mb-2">Seu pedido:</p>
-              <div className="space-y-1">
+            <div className="mb-2 sm:mb-3">
+              <p className="text-xs sm:text-sm text-lilac-600 mb-1 sm:mb-2">Seu pedido:</p>
+              <div className="space-y-0.5 sm:space-y-1 max-h-16 sm:max-h-20 overflow-y-auto">
                 {cart.map((item) => (
-                  <div key={item.id} className="flex justify-between text-sm">
-                    <span className="text-lilac-700">{item.quantity}x {item.name}</span>
+                  <div key={item.id} className="flex justify-between text-xs sm:text-sm">
+                    <span className="text-lilac-700 truncate pr-2">
+                      {item.quantity}x {item.name}
+                    </span>
                   </div>
                 ))}
               </div>
@@ -249,10 +253,12 @@ const Index = () => {
             
             <Button 
               onClick={sendToWhatsApp}
-              className="w-full bg-green-500 hover:bg-green-600 text-white font-medium py-3 text-lg flex items-center justify-center gap-2"
+              className="w-full bg-green-500 hover:bg-green-600 text-white font-medium py-2.5 sm:py-3 text-sm sm:text-base lg:text-lg flex items-center justify-center gap-2"
             >
-              <MessageCircle className="w-5 h-5" />
-              Realizar Pedido ({getTotalItems()} {getTotalItems() === 1 ? 'item' : 'itens'})
+              <MessageCircle className="w-4 h-4 sm:w-5 sm:h-5" />
+              <span className="truncate">
+                Realizar Pedido ({getTotalItems()} {getTotalItems() === 1 ? 'item' : 'itens'})
+              </span>
             </Button>
           </div>
         </div>
