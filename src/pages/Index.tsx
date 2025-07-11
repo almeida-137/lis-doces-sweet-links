@@ -20,41 +20,24 @@ interface CartItem extends BrigadeiroItem {
 const brigadeiros: BrigadeiroItem[] = [
   {
     id: 1,
-    name: "Brigadeiro Tradicional",
-    description: "Feito com chocolate belga e muito amor 🍫",
+    name: "Brigadeiro",
+    description: "Clássico e amado por todos, feito com chocolate belga e muito amor 🍫",
     image: "https://images.unsplash.com/photo-1618160702438-9b02ab6515c9?w=300&h=300&fit=crop&crop=center"
   },
   {
     id: 2,
-    name: "Leite Ninho",
-    description: "Cremoso e irresistível, com leite em pó especial 🥛",
+    name: "Morango",
+    description: "Doce e delicado, com recheio cremoso e toque de leite em pó especial 🍓",
     image: "https://images.unsplash.com/photo-1618160702438-9b02ab6515c9?w=300&h=300&fit=crop&crop=center"
   },
   {
     id: 3,
-    name: "Pistache",
-    description: "Sabor refinado com pistache importado 🌰",
-    image: "https://images.unsplash.com/photo-1618160702438-9b02ab6515c9?w=300&h=300&fit=crop&crop=center"
-  },
-  {
-    id: 4,
-    name: "Morango com Nutella",
-    description: "A combinação perfeita do doce com o achocolatado 🍓",
-    image: "https://images.unsplash.com/photo-1618160702438-9b02ab6515c9?w=300&h=300&fit=crop&crop=center"
-  },
-  {
-    id: 5,
-    name: "Beijinho de Coco",
-    description: "Branquinho e delicado, com coco fresco 🥥",
-    image: "https://images.unsplash.com/photo-1618160702438-9b02ab6515c9?w=300&h=300&fit=crop&crop=center"
-  },
-  {
-    id: 6,
-    name: "Café Gourmet",
-    description: "Para os amantes de café, intenso e aromático ☕",
+    name: "Beijinho",
+    description: "Tradicional combinação de coco com leite condensado, finalizado com carinho 🥥",
     image: "https://images.unsplash.com/photo-1618160702438-9b02ab6515c9?w=300&h=300&fit=crop&crop=center"
   }
 ];
+
 
 const Index = () => {
   const [cart, setCart] = useState<CartItem[]>([]);
@@ -110,7 +93,7 @@ const Index = () => {
     cart.forEach(item => {
       message += `• ${item.quantity}x ${item.name}\n`;
     });
-    message += "\nObrigada! 💜";
+    message += "\nObrigada!";
     return encodeURIComponent(message);
   };
 
@@ -125,7 +108,7 @@ const Index = () => {
     }
     
     const message = generateWhatsAppMessage();
-    const whatsappUrl = `https://wa.me/5511999999999?text=${message}`;
+    const whatsappUrl = `https://wa.me/5599991506190?text=${message}`;
     window.open(whatsappUrl, '_blank');
   };
 
@@ -142,7 +125,7 @@ const Index = () => {
           </p>
           
           {/* Social Links - Mobile Optimized */}
-          <div className="flex flex-col sm:flex-row gap-2 sm:gap-4 justify-center mb-6 sm:mb-8">
+          {/* <div className="flex flex-col sm:flex-row gap-2 sm:gap-4 justify-center mb-6 sm:mb-8">
             <Button 
               variant="outline" 
               size="lg"
@@ -153,15 +136,16 @@ const Index = () => {
               WhatsApp
             </Button>
             <Button 
+            
               variant="outline" 
               size="lg"
               className="border-lilac-300 text-lilac-700 hover:bg-lilac-100 flex items-center justify-center gap-2 h-10 sm:h-11 text-sm sm:text-base"
-              onClick={() => window.open('https://instagram.com/lisdoces', '_blank')}
+              onClick={() => window.open('https://instagram.com/doces_lisd', '_blank')}
             >
               <Instagram className="w-4 h-4 sm:w-5 sm:h-5" />
               Instagram
             </Button>
-          </div>
+          </div> */}
         </div>
       </div>
 
