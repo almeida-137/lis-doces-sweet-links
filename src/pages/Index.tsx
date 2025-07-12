@@ -22,26 +22,26 @@ const brigadeiros: BrigadeiroItem[] = [
     id: 1,
     name: "Brigadeiro",
     description: "Clássico e amado por todos, feito com chocolate belga e muito amor 🍫",
-    image: "https://images.unsplash.com/photo-1618160702438-9b02ab6515c9?w=300&h=300&fit=crop&crop=center"
+    image: "/doces-lis/images/brigadeiro.jpeg"
   },
   {
     id: 2,
     name: "Morango",
     description: "Doce e delicado, com recheio cremoso e toque de leite em pó especial 🍓",
-    image: "https://images.unsplash.com/photo-1618160702438-9b02ab6515c9?w=300&h=300&fit=crop&crop=center"
+    image: "/doces-lis/images/morango.jpeg"
   },
   {
     id: 3,
     name: "Beijinho",
     description: "Tradicional combinação de coco com leite condensado, finalizado com carinho 🥥",
-    image: "https://images.unsplash.com/photo-1618160702438-9b02ab6515c9?w=300&h=300&fit=crop&crop=center"
+    image: "/doces-lis/images/beijinho.jpeg"
   }
 ];
 
 
 const Index = () => {
   const [cart, setCart] = useState<CartItem[]>([]);
-  const [quantities, setQuantities] = useState<{[key: number]: number}>({});
+  const [quantities, setQuantities] = useState<{ [key: number]: number }>({});
   const { toast } = useToast();
 
   const updateQuantity = (id: number, change: number) => {
@@ -56,7 +56,7 @@ const Index = () => {
     if (quantity === 0) {
       toast({
         title: "Selecione uma quantidade",
-        description: "Por favor, escolha quantos brigadeiros você deseja.",
+        description: "Por favor, escolha quantas trufas você deseja.",
         variant: "destructive"
       });
       return;
@@ -101,14 +101,14 @@ const Index = () => {
     if (cart.length === 0) {
       toast({
         title: "Carrinho vazio",
-        description: "Adicione alguns brigadeiros ao seu pedido primeiro!",
+        description: "Adicione algumas trufas ao seu pedido primeiro!",
         variant: "destructive"
       });
       return;
     }
-    
+
     const message = generateWhatsAppMessage();
-    const whatsappUrl = `https://wa.me/5599991506190?text=${message}`;
+    const whatsappUrl = `https://wa.me/559991687776?text=${message}`;
     window.open(whatsappUrl, '_blank');
   };
 
@@ -121,23 +121,23 @@ const Index = () => {
             Lis Doces
           </h1>
           <p className="text-lilac-600 text-sm sm:text-base lg:text-lg mb-4 sm:mb-6 font-light">
-            Brigadeiros caseiros feitos com amor 💜
+            Trufas caseiras feitas com amor 💜
           </p>
-          
+
           {/* Social Links - Mobile Optimized */}
-          {/* <div className="flex flex-col sm:flex-row gap-2 sm:gap-4 justify-center mb-6 sm:mb-8">
-            <Button 
-              variant="outline" 
+          <div className="flex flex-col sm:flex-row gap-2 sm:gap-4 justify-center mb-6 sm:mb-8">
+            <Button
+              variant="outline"
               size="lg"
               className="border-lilac-300 text-lilac-700 hover:bg-lilac-100 flex items-center justify-center gap-2 h-10 sm:h-11 text-sm sm:text-base"
-              onClick={() => window.open('https://wa.me/5511999999999', '_blank')}
+              onClick={() => window.open('https://wa.me/559991687776', '_blank')}
             >
               <MessageCircle className="w-4 h-4 sm:w-5 sm:h-5" />
               WhatsApp
             </Button>
-            <Button 
-            
-              variant="outline" 
+            <Button
+
+              variant="outline"
               size="lg"
               className="border-lilac-300 text-lilac-700 hover:bg-lilac-100 flex items-center justify-center gap-2 h-10 sm:h-11 text-sm sm:text-base"
               onClick={() => window.open('https://instagram.com/doces_lisd', '_blank')}
@@ -145,16 +145,19 @@ const Index = () => {
               <Instagram className="w-4 h-4 sm:w-5 sm:h-5" />
               Instagram
             </Button>
-          </div> */}
+          </div>
         </div>
       </div>
 
       {/* Menu - Mobile First */}
-      <div className="max-w-2xl mx-auto px-3 sm:px-4 pb-24 sm:pb-28 lg:pb-32">
-        <h2 className="text-xl sm:text-2xl font-semibold text-lilac-800 mb-4 sm:mb-6 text-center">
+      <div className="max-w-2xl mx-auto px-3 sm:px-4 pb-44 sm:pb-48 lg:pb-64">
+        <h2 className="text-xl sm:text-2xl font-semibold text-lilac-800 mb-2 sm:mb-3 text-center">
           Nosso Cardápio
         </h2>
-        
+        <span className="block text-base sm:text-lg text-lilac-700 mb-4 sm:mb-6 text-center font-medium">
+          A partir de 5 doces realizamos a entrega em sua casa!
+        </span>
+
         <div className="grid gap-3 sm:gap-4 lg:gap-6">
           {brigadeiros.map((brigadeiro) => (
             <Card key={brigadeiro.id} className="overflow-hidden border-lilac-200 shadow-sm hover:shadow-md transition-shadow animate-fade-in">
@@ -162,13 +165,13 @@ const Index = () => {
                 <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
                   {/* Image - Mobile Optimized */}
                   <div className="w-16 h-16 sm:w-20 sm:h-20 lg:w-24 lg:h-24 rounded-full overflow-hidden flex-shrink-0 border-2 border-lilac-200 mx-auto sm:mx-0">
-                    <img 
-                      src={brigadeiro.image} 
+                    <img
+                      src={brigadeiro.image}
                       alt={brigadeiro.name}
                       className="w-full h-full object-cover"
                     />
                   </div>
-                  
+
                   <div className="flex-1 text-center sm:text-left">
                     <h3 className="font-semibold text-lilac-800 text-base sm:text-lg mb-1">
                       {brigadeiro.name}
@@ -176,7 +179,7 @@ const Index = () => {
                     <p className="text-lilac-600 text-xs sm:text-sm mb-3 sm:mb-4 leading-relaxed">
                       {brigadeiro.description}
                     </p>
-                    
+
                     {/* Controls - Mobile Optimized */}
                     <div className="flex flex-col sm:flex-row items-center gap-3 sm:justify-between">
                       <div className="flex items-center gap-2 sm:gap-3">
@@ -188,11 +191,11 @@ const Index = () => {
                         >
                           <Minus className="h-3 w-3 sm:h-4 sm:w-4" />
                         </Button>
-                        
+
                         <span className="w-8 text-center font-medium text-lilac-800 text-sm sm:text-base">
                           {quantities[brigadeiro.id] || 0}
                         </span>
-                        
+
                         <Button
                           variant="outline"
                           size="icon"
@@ -202,7 +205,7 @@ const Index = () => {
                           <Plus className="h-3 w-3 sm:h-4 sm:w-4" />
                         </Button>
                       </div>
-                      
+
                       <Button
                         onClick={() => addToCart(brigadeiro)}
                         className="bg-lilac-500 hover:bg-lilac-600 text-white px-4 sm:px-6 h-8 sm:h-10 text-sm sm:text-base w-full sm:w-auto mt-2 sm:mt-0"
@@ -216,6 +219,9 @@ const Index = () => {
             </Card>
           ))}
         </div>
+        <span className="block text-base sm:text-lg text-lilac-700 mt-4 mb-4 sm:mb-6 text-center font-medium">
+          Novos Sabores em Breve!
+        </span>
       </div>
 
       {/* Fixed Cart Footer - Mobile First */}
@@ -234,8 +240,8 @@ const Index = () => {
                 ))}
               </div>
             </div>
-            
-            <Button 
+
+            <Button
               onClick={sendToWhatsApp}
               className="w-full bg-green-500 hover:bg-green-600 text-white font-medium py-2.5 sm:py-3 text-sm sm:text-base lg:text-lg flex items-center justify-center gap-2"
             >
