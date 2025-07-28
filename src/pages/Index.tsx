@@ -35,6 +35,12 @@ const brigadeiros: BrigadeiroItem[] = [
     name: "Beijinho",
     description: "Tradicional combinação de coco com leite condensado, finalizado com carinho 🥥",
     image: "/doces-lis/images/beijinho.jpeg"
+  },
+  {
+    id: 4,
+    name: "Maracujá",
+    description: "Irresistível trufa de maracujá com recheio cremoso e sabor tropical 🍈",
+    image: "/doces-lis/images/maracuja.jpeg"
   }
 ];
 
